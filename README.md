@@ -1,5 +1,5 @@
 # WOW test app
-I Have Developed The Android App As Required By WOW
+I Have Developed The Android App As Required By WOW. I mostly focused on showing my skills. So, I used both libraries & own implemtations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation
 
 #Screenhots
 <p align="center">
