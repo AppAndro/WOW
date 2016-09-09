@@ -1,5 +1,8 @@
 # WOW test app
-I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implemtations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation</b>
+I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implementations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation(ASP.NET Backend)</b>
+
+<br>
+I have Made A Seperate Domain :- http://wowapp.marveldeal.com to build the API
 
 #Screenhots
 <p align="center">
