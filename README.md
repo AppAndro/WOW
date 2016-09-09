@@ -6,9 +6,26 @@ I developed this app using my own server. I apologize for slow speed of video st
 
 #Tools used
 1. Android Studio (To Build The App)
-2. Visual Studio (To Build The API)
-3. I Have Used Code From My Own Apps. I have parts of the code from them 7 changed them to fit the needs
+2. Visual Studio (To Build The Server API)
+3. I Have Used Code From My Own Apps. I have parts of the code from them & changed them to fit the needs
 4. I Have Used Answers by fabric(App Analytics) & Crashlytics (Crash Logging Library)
-5. I Used Digits By Fabric To Build OTP Authentication System./
+5. I Used Digits By Fabric To Build OTP Authentication System.
 
+# API Details
+   ```
+   
+POST /api/v1/auth HTTP/1.1
+
+Host: wowapp.marveldeal.com
+Content-Type: application/x-www-form-urlencoded
+email=wilsonmani88%40gmail.com&phone=+919718928987&token=7d89as7d89sa7d89s7a89780yilkhjkhjk
+
+   ```
+Sample Response:
+```
+{
+   "status": "Success: Welcome Back Dear User",
+   "token": "A3E64C0E2673B443E51A59F99E6816E9"
+}
+```
 
