@@ -1,4 +1,4 @@
-# WOW test app
+# WOW app
 I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implementations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation(ASP.NET Backend)</b>
 
 <br>
