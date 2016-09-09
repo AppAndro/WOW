@@ -14,7 +14,7 @@ I developed this app using my own server. I apologize for slow speed of video st
 2. Visual Studio (To Build The Server API)
 3. I Have Used Code From My Own Apps. I have parts of the code from them & changed them to fit the needs
 4. I Have Used Answers by fabric(App Analytics) & Crashlytics (Crash Logging Library)
-5. I Used Digits By Fabric To Build OTP Authentication System.
+5. I Used Digits By Fabric To Build OTP Authentication System because I didn't wanted to buy an SMS Plan.
 
 # API Details
 ## Authorization API
