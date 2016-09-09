@@ -26,6 +26,40 @@ Sample Response:
    "token": "A3E64C0E2673B443E51A59F99E6816E9"
 }
 ```
+## Upload Video API
+```
+
+POST /api/v1/upload HTTP/1.1
+Host: wowapp.marveldeal.com
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="token"
+
+A3E64C0E2673B443E51A59F99E6816E9
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
+
+My Sport Video
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="Desc"
+
+It is My First Video
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="tags"
+
+vide, sport, haha
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename=""
+Content-Type: 
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+```
+Sample Response:
+```
+Video Recieved
+```
 ## GetUploadedVideo API
 ```
 POST /api/v1/getVideos HTTP/1.1
