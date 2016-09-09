@@ -1,0 +1,50 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.marveldeal.wow.VideoListActivity">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:orientation="vertical"
+        android:id="@+id/no_app"
+        android:layout_marginBottom="60dp"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="120dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_height="120dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Add A Video Now"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/add_app"
+            android:layout_height="wrap_content"
+            android:text="Add Video Now"/>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_gravity="bottom|end"
+        app:elevation="6dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        app:pressedTranslationZ="11dp"/>
+</FrameLayout>
