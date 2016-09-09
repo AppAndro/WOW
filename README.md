@@ -3,9 +3,9 @@ I Have Developed The Android App As Required By WOW
 
 #Screenhots
 <p align="center">
-  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-43-36.png" width="350"/>
-  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png" width="350"/>
-  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-56.png" width="350"/>
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-43-36.png" width="200"/>
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png" width="200"/>
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-56.png" width="200"/>
 </p>
 
 #Note
