@@ -4,7 +4,7 @@ I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on
 <br>
 I have Made A Seperate Domain :- http://wowapp.marveldeal.com to build the API
 
-#Screenhots
+#Screenshots
 <p align="center">
   <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-43-36.png" width="200"/>
   <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png" width="200"/>
