@@ -2,6 +2,8 @@
 I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implementations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation(ASP.NET Backend)</b>
 
 <br>
+I Haven't used any HTTP library but i know how to use them(AsyncHttpLibrary). I Didn't used them beacause currently there are only 2 total API requests. It was not necessary to use a library just for 2 call.
+<br>
 I have Made A Seperate Domain :- http://wowapp.marveldeal.com to build the API
 
 #Build APK
