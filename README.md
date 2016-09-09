@@ -7,7 +7,8 @@ I Have Developed The Android App As Required By WOW
   <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png" width="200"/>
   <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-56.png" width="200"/>
 </p>
-
+#Build APK
+You Can Download APK from <a href="https://github.com/AppAndro/WOW/blob/master/app-debug.apk?raw=true">here</a>
 #Note
 I developed this app using my own server. I apologize for slow speed of video streaming as my server is not fast & strong enough
 
