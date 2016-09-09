@@ -38,9 +38,9 @@ Sample Response:
 {
   "videos": [
     {
-      "title": "Eat My Potty",
-      "description": "HAHAH",
-      "tags": "potty, hahaha,a",
+      "title": "My Skating Video",
+      "description": "Test Description",
+      "tags": "skating, sport",
       "datetime": "2016-09-08T12:47:22.507",
       "videoURL": "http://wowapp.marveldeal.com/VideoUploads/4jJ6UP.avi"
     }
