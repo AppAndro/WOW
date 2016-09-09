@@ -2,9 +2,11 @@
 I Have Developed The Android App As Required By WOW
 
 #Screenhots
-![alt tag](https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-43-36.png)
-![alt tag](https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png)
-![alt tag](https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-56.png)
+<p align="center">
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-43-36.png" width="350"/>
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-24.png" width="350"/>
+  <img src="https://github.com/AppAndro/WOW/raw/master/Screenshot_2016-09-09-17-44-56.png" width="350"/>
+</p>
 
 #Note
 I developed this app using my own server. I apologize for slow speed of video streaming as my server is not fast & strong enough
