@@ -1,5 +1,5 @@
 # WOW app
-I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implementations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation(ASP.NET Backend)</b>
+I Have Developed The Android App As Required By WOW. <br> <b>I mostly focused on showing my skills. So, I used both libraries & own implementations in this app. It Took Me Around 5-6 Hours To Build This App & Its Server Implementation(ASP.NET Backend But I Can Also Program Backend On PHP & Java)</b>
 
 <br>
 I have written all API integration code manually without using any HTTP library but i know how to use them(AsyncHttpLibrary). I Didn't used them because currently there are only 2 total API requests. It was not necessary to use a library just for 2 call.
