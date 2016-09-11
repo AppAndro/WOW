@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.digits.sdk.android.AuthCallback;
@@ -14,6 +15,7 @@ import com.digits.sdk.android.DigitsAuthButton;
 import com.digits.sdk.android.DigitsException;
 import com.digits.sdk.android.DigitsSession;
 import com.marveldeal.wow.R;
+import com.marveldeal.wow.ScraperActivity;
 import com.marveldeal.wow.VideoListActivity;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -33,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
             proceed();
         }
         setContentView(R.layout.activity_login);
+        findViewById(R.id.scrape).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ScraperActivity.class));
+            }
+        });
         DigitsAuthButton digitsButton = (DigitsAuthButton) findViewById(R.id.auth_button);
         digitsButton.setCallback(new AuthCallback() {
             @Override

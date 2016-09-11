@@ -2,4 +2,5 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.marveldeal.wow.VideoListActivity">
+    <item app:showAsAction="always" android:showAsAction="always" android:title="Scrape" android:id="@+id/scrape_action"/>
 </menu>

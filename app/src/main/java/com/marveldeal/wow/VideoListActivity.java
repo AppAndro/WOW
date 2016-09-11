@@ -118,6 +118,10 @@ public class VideoListActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id==R.id.scrape_action){
+            startActivity(new Intent(VideoListActivity.this, ScraperActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 }
