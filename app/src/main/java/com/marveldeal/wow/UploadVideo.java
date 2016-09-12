@@ -23,6 +23,8 @@ import com.alexbbb.uploadservice.AbstractUploadServiceReceiver;
 import com.alexbbb.uploadservice.ContentType;
 import com.alexbbb.uploadservice.UploadRequest;
 import com.alexbbb.uploadservice.UploadService;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
 import com.marveldeal.wow.membership.LoginManager;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -59,7 +61,7 @@ public class UploadVideo extends AppCompatActivity {
                     Toast.makeText(UploadVideo.this, "description Cant be empty", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(videoPath==null||videoPath.isEmpty()){
+                if (videoPath == null || videoPath.isEmpty()) {
                     Toast.makeText(UploadVideo.this, "Video is Not Selected. Please Select One", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -83,13 +85,20 @@ public class UploadVideo extends AppCompatActivity {
         new AsyncTask<String, Void, Bitmap>(){
             @Override
             public Bitmap doInBackground(String... t){
-                Bitmap b = ThumbnailUtils.createVideoThumbnail(t[0], MediaStore.Video.Thumbnails.MICRO_KIND);
-                return Utils.scaleBitmap(b, 250, 250);
+                try {
+                    Bitmap b = ThumbnailUtils.createVideoThumbnail(t[0], MediaStore.Video.Thumbnails.MICRO_KIND);
+                    return Utils.scaleBitmap(b, 250, 250);
+                }catch (Exception e){}
+                return null;
             }
             @Override
             public void onPostExecute(Bitmap b){
-                thumb.setVisibility(View.VISIBLE);
-                thumb.setImageBitmap(b);
+                if(b!=null) {
+                    thumb.setVisibility(View.VISIBLE);
+                    thumb.setImageBitmap(b);
+                }else{
+                    Toast.makeText(UploadVideo.this, "Please Select A Small Video. Large Videos Are Not Yet Usable", Toast.LENGTH_LONG).show();
+                }
             }
         }.execute(videoPath);
     }
@@ -129,12 +138,13 @@ public class UploadVideo extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == 100) {
             try {
                 videoPath = FilePathUtils.getPath(this, data.getData());
-            }catch (Exception e){Log.e("Err", "er", e);}
+                Answers.getInstance().logCustom(new CustomEvent("SELECTED:-"+videoPath));
+                }catch (Exception e){Log.e("Err", "er", e);}
                 if(videoPath!=null&&!videoPath.isEmpty()){
                     setVideoThumbnail();
                 }
                 else{
-                  Toast.makeText(UploadVideo.this, "It Seems You Have Selected An InAccessible Or Invalid Video", Toast.LENGTH_LONG).show();
+                  Toast.makeText(UploadVideo.this, "It Seems You Have Selected An InAccessible Or Invalid Video. Try Selecting From Internal Storage", Toast.LENGTH_LONG).show();
                 }
         }
     }
