@@ -59,6 +59,10 @@ public class UploadVideo extends AppCompatActivity {
                     Toast.makeText(UploadVideo.this, "description Cant be empty", Toast.LENGTH_LONG).show();
                     return;
                 }
+                if(videoPath==null||videoPath.isEmpty()){
+                    Toast.makeText(UploadVideo.this, "Video is Not Selected. Please Select One", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 upload(UploadVideo.this, titl, desc, tg);
             }
         });
@@ -101,7 +105,7 @@ public class UploadVideo extends AppCompatActivity {
         request.addParameter("token", new LoginManager(context).getToken());
         request.setNotificationConfig(
                 android.R.drawable.ic_menu_upload, //Notification icon. You can use your own app's R.drawable.your_resource
-                "Uploading File", //You can use your string resource with: context.getString(R.string.your_string)
+                "Uploading Video", //You can use your string resource with: context.getString(R.string.your_string)
                 "Uploading...",
                 "Upload Completed",
                 "Upload Failed",
@@ -138,7 +142,6 @@ public class UploadVideo extends AppCompatActivity {
     public void showDialog(){
         pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        pDialog.getProgressHelper().setInstantProgress(0);
         pDialog.setTitleText("Uploading Video...");
         pDialog.setCancelable(false);
         pDialog.show();
@@ -146,8 +149,7 @@ public class UploadVideo extends AppCompatActivity {
     private  final BroadcastReceiver uploadReceiver = new AbstractUploadServiceReceiver() {
         public void onProgress(final String uploadId, final int progress) {
             if(pDialog!=null){
-                Log.d("WOW", "Pr"+progress);
-                pDialog.getProgressHelper().setInstantProgress(progress);
+                pDialog.setContentText(progress+"% Completed");
             }
         }
         public void onError(final String uploadId, final Exception exception) {
