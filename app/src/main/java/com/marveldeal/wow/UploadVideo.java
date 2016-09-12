@@ -84,7 +84,7 @@ public class UploadVideo extends AppCompatActivity {
             @Override
             public Bitmap doInBackground(String... t){
                 Bitmap b = ThumbnailUtils.createVideoThumbnail(t[0], MediaStore.Video.Thumbnails.MICRO_KIND);
-                return Utils.scaleBitmap(b, 150, 150);
+                return Utils.scaleBitmap(b, 250, 250);
             }
             @Override
             public void onPostExecute(Bitmap b){

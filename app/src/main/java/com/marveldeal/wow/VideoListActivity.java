@@ -95,6 +95,7 @@ public class VideoListActivity extends AppCompatActivity {
                         }
                     });
                     pDialog.changeAlertType(SweetAlertDialog.WARNING_TYPE);
+                    pDialog.show();
                 }
             }
         });
