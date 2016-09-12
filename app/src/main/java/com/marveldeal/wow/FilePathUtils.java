@@ -10,7 +10,7 @@ import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 
 /**
- * Created by PRINCE MANI on 27-08-2016.
+ * Created by Willson MANI on 27-08-2016.
  */
 public class FilePathUtils {
     public static String getPath(Context context, Uri uri) {
@@ -23,11 +23,20 @@ public class FilePathUtils {
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
                 final String type = split[0];
-
+                String storageDefinition;
                 if ("primary".equalsIgnoreCase(type)) {
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
+                }else {
+
+                    if(Environment.isExternalStorageRemovable()){
+                        storageDefinition = "EXTERNAL_STORAGE";
+
+                    } else{
+                        storageDefinition = "SECONDARY_STORAGE";
+                    }
+
+                    return System.getenv(storageDefinition) + "/" + split[1];
                 }
-                // TODO handle non-primary volumes
             }
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {

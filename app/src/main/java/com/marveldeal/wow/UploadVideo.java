@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -98,7 +99,6 @@ public class UploadVideo extends AppCompatActivity {
         request.addParameter("desc", description);
         request.addParameter("tags", tags);
         request.addParameter("token", new LoginManager(context).getToken());
-        Bitmap b = ThumbnailUtils.createVideoThumbnail(videoPath,  MediaStore.Video.Thumbnails.MICRO_KIND);
         request.setNotificationConfig(
                 android.R.drawable.ic_menu_upload, //Notification icon. You can use your own app's R.drawable.your_resource
                 "Uploading File", //You can use your string resource with: context.getString(R.string.your_string)
@@ -125,12 +125,12 @@ public class UploadVideo extends AppCompatActivity {
         if (resultCode == RESULT_OK && requestCode == 100) {
             try {
                 videoPath = FilePathUtils.getPath(this, data.getData());
-            }catch (Exception e){}
+            }catch (Exception e){Log.e("Err", "er", e);}
                 if(videoPath!=null&&!videoPath.isEmpty()){
                     setVideoThumbnail();
                 }
                 else{
-                  Toast.makeText(UploadVideo.this, "It Seems You Have Selected From SD Card Which Is InAccessible Or You Have Selected An Invalid Video", Toast.LENGTH_LONG).show();
+                  Toast.makeText(UploadVideo.this, "It Seems You Have Selected An InAccessible Or Invalid Video", Toast.LENGTH_LONG).show();
                 }
         }
     }
@@ -146,6 +146,7 @@ public class UploadVideo extends AppCompatActivity {
     private  final BroadcastReceiver uploadReceiver = new AbstractUploadServiceReceiver() {
         public void onProgress(final String uploadId, final int progress) {
             if(pDialog!=null){
+                Log.d("WOW", "Pr"+progress);
                 pDialog.getProgressHelper().setInstantProgress(progress);
             }
         }

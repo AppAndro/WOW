@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.digits.sdk.android.DigitsSession;
 import com.marveldeal.wow.Utils;
 
@@ -59,10 +60,8 @@ public class LoginManager {
                 conn.setDoOutput(true);
                 conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setRequestProperty("Accept", "*/*");
-                conn.setRequestProperty("Host", "wowapp.marveldeal.com");
                 conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 4.4; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
                 String param = "email=" + URLEncoder.encode(session.getEmail().address, "UTF-8")+"&token="+ URLEncoder.encode(session.getAuthToken().token, "UTF-8")+"&phone="+ URLEncoder.encode(session.getPhoneNumber(), "UTF-8");
-                Log.d("WOW","param:"+param);
                 OutputStream os = conn.getOutputStream();
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
                 writer.write(param);
@@ -75,7 +74,8 @@ public class LoginManager {
                 model.token = obj.getString("token");
                 return model;
             } catch (Exception e) {
-                Log.e("WOW", "err", e);
+                Log.e("MarvelApp", "err", e);
+                Crashlytics.logException(e);
             }
             return null;
         }
@@ -85,7 +85,7 @@ public class LoginManager {
                 putToken(res.token);
             }
             if(listener!=null) {
-                listener.onSuccess(res.msg!=null?res.msg:"There Was An Error");
+                listener.onSuccess(res!=null && res.msg!=null?res.msg:"There Was An Error");
             }
         }
     }

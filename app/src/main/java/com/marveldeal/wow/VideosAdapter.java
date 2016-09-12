@@ -50,7 +50,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.VideoViewH
             return mDataset.get(i);
         }
         public void set(List<WowAPI.VideoUploadModel> mDataset){
-            this.mDataset.addAll(mDataset);
+            this.mDataset = mDataset;
             notifyDataSetChanged();
         }
         @Override
