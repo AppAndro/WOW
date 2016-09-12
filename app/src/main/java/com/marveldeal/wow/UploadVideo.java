@@ -97,7 +97,8 @@ public class UploadVideo extends AppCompatActivity {
                     thumb.setVisibility(View.VISIBLE);
                     thumb.setImageBitmap(b);
                 }else{
-                    Toast.makeText(UploadVideo.this, "Please Select A Small Video. Large Videos Are Not Yet Usable", Toast.LENGTH_LONG).show();
+                    Toast.makeText(UploadVideo.this, "The Video Was Unusably Large Or Inaccessible", Toast.LENGTH_LONG).show();
+                    videoPath = null;
                 }
             }
         }.execute(videoPath);
@@ -139,7 +140,7 @@ public class UploadVideo extends AppCompatActivity {
             try {
                 videoPath = FilePathUtils.getPath(this, data.getData());
                 Answers.getInstance().logCustom(new CustomEvent("SELECTED:-"+videoPath));
-                }catch (Exception e){Log.e("Err", "er", e);}
+                } catch (Exception e){Log.e("Err", "er", e);}
                 if(videoPath!=null&&!videoPath.isEmpty()){
                     setVideoThumbnail();
                 }
