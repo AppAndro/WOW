@@ -30,11 +30,15 @@ public class VideoListActivity extends AppCompatActivity {
     @Override public void onResume() {
         super.onResume();
         Toro.register(recycler);
-        startLoading();
     }
     @Override public void onPause() {
         Toro.unregister(recycler);
         super.onPause();
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        startLoading();
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
