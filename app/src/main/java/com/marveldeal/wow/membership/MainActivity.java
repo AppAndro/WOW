@@ -10,6 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.amazon.device.ads.Ad;
+import com.amazon.device.ads.AdError;
+import com.amazon.device.ads.AdListener;
+import com.amazon.device.ads.AdProperties;
+import com.amazon.device.ads.AdRegistration;
+import com.amazon.device.ads.InterstitialAd;
 import com.digits.sdk.android.AuthCallback;
 import com.digits.sdk.android.DigitsAuthButton;
 import com.digits.sdk.android.DigitsException;
@@ -17,6 +23,12 @@ import com.digits.sdk.android.DigitsSession;
 import com.marveldeal.wow.R;
 import com.marveldeal.wow.ScraperActivity;
 import com.marveldeal.wow.VideoListActivity;
+import com.nativex.monetization.MonetizationManager;
+import com.nativex.monetization.enums.AdEvent;
+import com.nativex.monetization.enums.NativeXAdPlacement;
+import com.nativex.monetization.listeners.OnAdEventV2;
+import com.nativex.monetization.listeners.SessionListener;
+import com.nativex.monetization.mraid.AdInfo;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -27,6 +39,31 @@ public class MainActivity extends AppCompatActivity {
  */
     SweetAlertDialog pDialog;
     LoginManager manager;
+    InterstitialAd ad;
+    private SessionListener sessionListener = new SessionListener() {
+        @Override
+        public void createSessionCompleted(boolean success, boolean isOfferWallEnabled, String sessionId) {
+            if (success) {
+                MonetizationManager.fetchAd(MainActivity.this, NativeXAdPlacement.Exit_Ad_From_Application, new OnAdEventV2() {
+                    @Override
+                    public void onEvent(AdEvent adEvent, AdInfo adInfo, String s) {
+
+                    }
+                });
+            }
+        }
+    };
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MonetizationManager.createSession(getApplicationContext(), "105567", sessionListener);
+    }
+
+    @Override
+    public void onBackPressed(){
+        MonetizationManager.showReadyAd(this, NativeXAdPlacement.Exit_Ad_From_Application, null);
+        super.onBackPressed();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +71,24 @@ public class MainActivity extends AppCompatActivity {
         if(manager.getToken()!=null){
             proceed();
         }
+        ad = new InterstitialAd(this);
+        AdRegistration.setAppKey("0ce5d2febe1e4b4587c5e68a09fceade");
+        AdRegistration.enableLogging(true);
+        ad.setListener(new AdListener() {
+            @Override
+            public void onAdLoaded(Ad ad, AdProperties adProperties) {
+                MainActivity.this.ad.showAd();
+            }
+            @Override
+            public void onAdFailedToLoad(Ad ad, AdError adError) {}
+            @Override
+            public void onAdExpanded(Ad ad) {}
+            @Override
+            public void onAdCollapsed(Ad ad) {}
+            @Override
+            public void onAdDismissed(Ad ad) {}
+        });
+        ad.loadAd();
         setContentView(R.layout.activity_login);
         findViewById(R.id.scrape).setOnClickListener(new View.OnClickListener() {
             @Override
